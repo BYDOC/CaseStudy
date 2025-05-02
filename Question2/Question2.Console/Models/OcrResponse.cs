@@ -8,7 +8,7 @@ namespace Question2.Console.Models
 {
     public class OcrResponse
     {
-        public string? Locale { get; set; }  // Optional
+        public string? Locale { get; set; }
         public string Description { get; set; } = string.Empty;
         public BoundingPoly BoundingPoly { get; set; } = new();
 
