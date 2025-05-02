@@ -9,6 +9,8 @@ namespace Question1.Console
         private const string CharSet = "ACDEFGHKLMNPRTXYZ234579";
         private const int CodeLength = 8;
         private const string SecretKey = "SuperSecretKey";
+        private const int PAYLOAD_SIZE = 5;
+        private const int SIGNATURE_SIZE = 3;
 
         public static string Generate()
         {
@@ -18,13 +20,13 @@ namespace Question1.Console
         }
         private static char[] GeneratePayload()
         {
-            var payload = new char[5];
+            var payload = new char[PAYLOAD_SIZE];
             using var rng = RandomNumberGenerator.Create();
-            byte[] buffer = new byte[5];
+            byte[] buffer = new byte[PAYLOAD_SIZE];
 
             rng.GetBytes(buffer);
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < PAYLOAD_SIZE; i++)
             {
                 payload[i] = CharSet[buffer[i] % CharSet.Length];
             }
@@ -38,8 +40,8 @@ namespace Question1.Console
 
             byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(new string(payload)));
 
-            var chars = new char[3];
-            for (int i = 0; i < 3; i++)
+            var chars = new char[SIGNATURE_SIZE];
+            for (int i = 0; i < SIGNATURE_SIZE; i++)
                 chars[i] = CharSet[hash[i] % CharSet.Length];
 
             return new string(chars);
@@ -49,8 +51,8 @@ namespace Question1.Console
             if (string.IsNullOrWhiteSpace(code) || code.Length != CodeLength || code.Any(c => !CharSet.Contains(c)))
                 return false;
 
-            string payload = code.Substring(0, 5);
-            string signature = code.Substring(5, 3);
+            string payload = code.Substring(0, PAYLOAD_SIZE);
+            string signature = code.Substring(PAYLOAD_SIZE, SIGNATURE_SIZE);
             return GenerateSignature(payload.ToCharArray()) == signature;
         }
 
