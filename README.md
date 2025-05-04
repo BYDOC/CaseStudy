@@ -94,7 +94,7 @@ This repository contains solutions to two practical programming questions, desig
 ...
 ```
 
-📄 See [`OcrParser.cs`](Question2/Question2.Console/OcrParser.cs)
+📄 See [`ReceiptParser.cs`](Question2/Question2.Console/ReceiptParser.cs)
 
 ---
 

@@ -7,8 +7,8 @@ namespace Question1.Console
     {
         private const string CharSet = "ACDEFGHKLMNPRTXYZ234579";
         private const string SecretKey = "SuperSecretKey";
-        private const int PAYLOAD_SIZE = 7;
-        private const int SIGNATURE_SIZE = 1;
+        private const int PAYLOAD_SIZE = 6;
+        private const int SIGNATURE_SIZE = 2;
         private const int CodeLength = PAYLOAD_SIZE + SIGNATURE_SIZE;
 
 
