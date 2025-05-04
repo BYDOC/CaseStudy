@@ -58,7 +58,7 @@ This repository contains solutions to two practical programming questions, desig
 
 
 
-📄 See [`CodeGenerator.cs`](Question1.Console/CodeGenerator.cs)
+📄 See [`CodeGenerator.cs`](Question1/Question1.Console/CodeGenerator.cs)
 
 ---
 
@@ -79,7 +79,7 @@ This repository contains solutions to two practical programming questions, desig
 ...
 ```
 
-📄 See [`OcrParser.cs`](Question2.Console/OcrParser.cs)
+📄 See [`OcrParser.cs`](Question2/Question2.Console/OcrParser.cs)
 
 ---
 
