@@ -1,16 +1,16 @@
 ﻿using System.Collections.Concurrent;
 using System.Security.Cryptography;
 using System.Text;
-
 namespace Question1.Console
 {
     public static class CodeGenerator
     {
         private const string CharSet = "ACDEFGHKLMNPRTXYZ234579";
-        private const int CodeLength = 8;
         private const string SecretKey = "SuperSecretKey";
-        private const int PAYLOAD_SIZE = 5;
-        private const int SIGNATURE_SIZE = 3;
+        private const int PAYLOAD_SIZE = 7;
+        private const int SIGNATURE_SIZE = 1;
+        private const int CodeLength = PAYLOAD_SIZE + SIGNATURE_SIZE;
+
 
         public static string Generate()
         {
@@ -55,8 +55,26 @@ namespace Question1.Console
             string signature = code.Substring(PAYLOAD_SIZE, SIGNATURE_SIZE);
             return GenerateSignature(payload.ToCharArray()) == signature;
         }
+        public static void CheckDuplicates(int total)
+        {
+            var codes = new HashSet<string>();
+            int duplicates = 0;
 
-        
+            for (int i = 0; i < total; i++)
+            {
+                string code = Generate();
+                if (!codes.Add(code))
+                {
+                    duplicates++;
+                    System.Console.WriteLine($"Duplicate found: {code}");
+                }
+            }
+
+            System.Console.WriteLine($"Generated:  {total}");
+            System.Console.WriteLine($"Unique:     {codes.Count}");
+            System.Console.WriteLine($"Duplicates: {duplicates}");
+        }
+
     }
 
 }

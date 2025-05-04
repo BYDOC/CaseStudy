@@ -55,17 +55,11 @@ This repository contains solutions to two practical programming questions, desig
 - The IsValid method verifies code integrity purely through algorithmic means — no storage or lookup required.
 - Ensures tamper resistance by binding the signature to the payload.
 
+📄 See [`CodeGenerator.cs`](Question1/Question1.Console/CodeGenerator.cs)
+
 ## Uniqueness Considerations
--- Considering the code contains 8 character (5 payload + 3 signature in currenct iteration), the odds of having at least 1 duplicate pair in a given set as follows. Considering codes will be used in food packages, below probabilities are quite unwanted. 
-
-| Codes Generated (n) | Collision Probability |
-| ------------------- | --------------------- |
-| 1,000               | \~7.8%                |
-| 2,000               | \~27.4%               |
-| 3,000               | \~52.1%               |
-| 5,000               | \~84.3%               |
-
--- Increasing payload length to 6 character while making signature 2 character long, makes the odds of having at least 1 duplicate pair in a given set less likely but still not at reasonable levels.
+- Considering the code contains 8 character (6 payload + 2 signature in currenct iteration), the odds of having at least 1 duplicate pair in a given set as follows. Considering codes will be used in food packages, below probabilities are quite unwanted. 
+- CheckDuplicates method generates codes and gives the duplicate codes for given length of code set.
 
 | Codes Generated | Collision Probability |
 | --------------- | --------------------- |
@@ -75,10 +69,11 @@ This repository contains solutions to two practical programming questions, desig
 | 100,000         | \~30.9%               |
 | 150,000         | \~55.4%               |
 
+- Without full deterministic approach or having not used a tracking value externally there is always high chance of having duplicate values. But with a deterministic approach where the codes are generated with a tracked counter the chance of predicting codes are quite high.
 
 
-
-📄 See [`CodeGenerator.cs`](Question1/Question1.Console/CodeGenerator.cs)
+## Tamper Proof Considerations
+- The longer the signature, the harder it becomes for an attacker to guess a valid one. For example, a 1-character signature from a 23-character set can be brute-forced in 23 attempts, while a 2-character signature increases that to 529 attempts. 
 
 ---
 
