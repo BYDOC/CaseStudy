@@ -5,7 +5,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ---
 
-## 🔍 Questions Overview
+## Questions Overview
 
 | Question | Topic                        | Description |
 |----------|-----------------------------|-------------|
@@ -14,7 +14,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -31,7 +31,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ---
 
-## 🧩 Question 1: Unique Code Generator
+## Question 1: Unique Code Generator
 
 ### ✅ Requirements
 - Codes must be 8 characters long and unique.
@@ -77,7 +77,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ---
 
-## 🧾 Question 2: OCR Text Reconstruction
+## Question 2: OCR Text Reconstruction
 
 
 ### ✅ Requirements
