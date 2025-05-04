@@ -55,6 +55,26 @@ This repository contains solutions to two practical programming questions, desig
 - The IsValid method verifies code integrity purely through algorithmic means — no storage or lookup required.
 - Ensures tamper resistance by binding the signature to the payload.
 
+## Uniqueness Considerations
+-- Considering the code contains 8 character (5 payload + 3 signature in currenct iteration), the odds of having at least 1 duplicate pair in a given set as follows. Considering codes will be used in food packages, below probabilities are quite unwanted. 
+
+| Codes Generated (n) | Collision Probability |
+| ------------------- | --------------------- |
+| 1,000               | \~7.8%                |
+| 2,000               | \~27.4%               |
+| 3,000               | \~52.1%               |
+| 5,000               | \~84.3%               |
+
+-- Increasing payload length to 6 character while making signature 2 character long, makes the odds of having at least 1 duplicate pair in a given set less likely but still not at reasonable levels.
+
+| Codes Generated | Collision Probability |
+| --------------- | --------------------- |
+| 1,000           | \~0.0034%             |
+| 10,000          | \~0.34%               |
+| 50,000          | \~8.4%                |
+| 100,000         | \~30.9%               |
+| 150,000         | \~55.4%               |
+
 
 
 
@@ -66,7 +86,7 @@ This repository contains solutions to two practical programming questions, desig
 
 
 ### ✅ Requirements
-- You are not responsible for performing the OCR itself — only for processing the provided JSON.
+- The solution is not required to perform OCR itself; it is only responsible for parsing the provided JSON response.
 - Use the coordinate data (boundingPoly) to parse.
 - The result should reflect the printed structure of the receipt as closely as possible.
 
