@@ -42,13 +42,13 @@ This repository contains solutions to two practical programming questions, desig
 - The codes should be difficult to predict or forge algorithmically.
 
 
-## ✅ How to Run
+## How to Run
 1. Open `CaseStudy.sln` in Visual Studio.
 2. Set `Question2.Console` as the startup project.
 3. Run the project (F5).
 
 
-## ✅ Details
+## Details
 - Generates 8-character codes using a restricted character set: ACDEFGHKLMNPRTXYZ234579.
 - The first 5 characters are a randomly generated payload, using a cryptographically secure RNG (by utilizing RandomNumberGenerator class).
 - The last 3 characters form a HMAC-SHA256 signature, derived from the payload and a private secret key.
@@ -80,12 +80,12 @@ This repository contains solutions to two practical programming questions, desig
 ## Question 2: OCR Text Reconstruction
 
 
-### ✅ Requirements
+### Requirements
 - The solution is not required to perform OCR itself; it is only responsible for parsing the provided JSON response.
 - Use the coordinate data (boundingPoly) to parse.
 - The result should reflect the printed structure of the receipt as closely as possible.
 
-### 🔄 Example Output
+### Example Output
 
 ```
 1 TEŞEKKÜRLER
@@ -98,7 +98,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ---
 
-## ✅ How to Run
+## How to Run
 
 1. Open `CaseStudy.sln` in Visual Studio.
 2. Set `Question2.Console` as the startup project.
