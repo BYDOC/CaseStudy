@@ -33,7 +33,7 @@ This repository contains solutions to two practical programming questions, desig
 
 ## Question 1: Unique Code Generator
 
-### ✅ Requirements
+### Requirements
 - Codes must be 8 characters long and unique.
 - Only use characters from the set: ACDEFGHKLMNPRTXYZ234579.
 - Users will use these codes through various channels during a campaign period.
@@ -96,12 +96,17 @@ This repository contains solutions to two practical programming questions, desig
 
 📄 See [`ReceiptParser.cs`](Question2/Question2.Console/ReceiptParser.cs)
 
----
-
 ## How to Run
 
 1. Open `CaseStudy.sln` in Visual Studio.
 2. Set `Question2.Console` as the startup project.
 3. Run the project (F5).
 
+## Details
+- The Build method reads the entire JSON file into a string and deserializes it into a list of OcrResponse objects.
+- The first OCR item (typically the full receipt boundary) is skipped.
+- Filters out any OCR items with missing or empty bounding vertices.
+- Sorts remaining items top-to-bottom (by Y coordinate), then left-to-right (by X coordinate).
+- Iterates through sorted items and groups them into lines based on vertical proximity with AverageY property.(within an error buffer of 10 pixels).
 
+---
